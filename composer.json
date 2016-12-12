@@ -1,0 +1,9 @@
+{
+    "name": "platformsh/reactphp-example",
+    "description": "A simple Hello World using React PHP",
+    "license": "MIT",
+    "require": {
+        "react/react": "^0.4.2",
+        "react/http": "v0.4.2"
+    }
+}
