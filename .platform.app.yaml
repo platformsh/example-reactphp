@@ -12,7 +12,13 @@ build:
 # The configuration of app when it is exposed to the web.
 web:
     commands:
+        # This is the command to start the React PHP server.
         start: php run.php
+    # We need to explicitly force Platform.sh to expose a TCP socket to
+    # the application, in the PORT environment variable.
+    upstream:
+        socket_family: tcp
+        protocol: http
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
