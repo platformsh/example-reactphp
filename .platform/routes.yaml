@@ -2,3 +2,10 @@
     type: upstream
     # the first part should be your project name
     upstream: "app:http"
+
+"http://{default}/ws":
+    type: upstream
+    # the first part should be your project name
+    upstream: "app:http"
+    cache:
+        enabled: false

@@ -1,6 +1,6 @@
-# React PHP template for Platform.sh
+# React PHP Websocket example for Platform.sh
 
-This project provides a starter kit for using React PHP on Platform.sh.  It is only a basic Hello-World level example, but can be used as the basis for an actual project.
+This branch shows how to setup a simple chat server using React PHP and the Ratchet websocket library on Platform.sh.  It is very closely based on [this tutorial](https://www.sitepoint.com/how-to-quickly-build-a-chat-app-with-ratchet/) from SitePoint.com.
 
 ## Starting a new project
 
@@ -12,7 +12,7 @@ To start a new project based on this template, follow these 3 simple steps:
 
 3. Run the provided Git commands to add a Platform.sh remote and push the code to the Platform.sh repository.
 
-That's it!  You now have a working "hello world" level project you can build on.
+That's it!  Now visit your site in 2 separate browser windows and enter a chat name.  You'll be able to enter a message on one window and have the message immediately appear in the other.
 
 ## Using as a reference
 

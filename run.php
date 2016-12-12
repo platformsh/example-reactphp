@@ -2,17 +2,23 @@
 
 require 'vendor/autoload.php';
 
-$app = function ($request, $response) {
-    $response->writeHead(200, array('Content-Type' => 'text/plain'));
-    $response->end("Hello World\n");
-};
 
-$loop = React\EventLoop\Factory::create();
-$socket = new React\Socket\Server($loop);
-$http = new React\Http\Server($socket, $loop);
+use Ratchet\Server\IoServer;
+use Ratchet\Http\HttpServer;
+use Ratchet\WebSocket\WsServer;
+use ChatApp\Chat;
 
-$http->on('request', $app);
+$port = getenv('PORT') ?: 8080;
 
-$socket->listen(getenv('PORT'));
+$server = IoServer::factory(
+    new HttpServer(
+        new WsServer(
+            new Chat()
+        )
+    ),
+    $port
+);
 
-$loop->run();
+print "Starting server...\n";
+
+$server->run();

@@ -1,9 +1,13 @@
 {
     "name": "platformsh/reactphp-example",
-    "description": "A simple Hello World using React PHP",
+    "description": "A basic websocket chat server using React PHP",
     "license": "MIT",
     "require": {
         "react/react": "^0.4.2",
-        "react/http": "v0.4.2"
+        "react/http": "v0.4.2",
+        "cboden/ratchet": "^0.3.5"
+    },
+    "autoload": {
+        "psr-4": {"ChatApp\\": "src/" }
     }
 }
