@@ -5,7 +5,7 @@
 name: app
 
 # The type of the application to build.
-type: php:7.0
+type: php:7.1
 build:
     flavor: composer
 
@@ -31,3 +31,8 @@ web:
 
 # The size of the persistent disk of the application (in MB).
 disk: 512
+
+# Enable the event PHP extension, which provides a faster core event loop.
+runtime:
+    extensions:
+        - event
