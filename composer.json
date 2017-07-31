@@ -3,6 +3,6 @@
     "description": "A simple Hello World using React PHP",
     "license": "MIT",
     "require": {
-        "react/http": "v0.4.2"
+        "react/http": "^0.7.2"
     }
 }
