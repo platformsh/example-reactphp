@@ -1,18 +1,24 @@
 <?php
 
+use Psr\Http\Message\ServerRequestInterface;
+use React\EventLoop\Factory;
+use React\Http\Response;
+use React\Http\Server as HttpServer;
+use React\Socket\Server as SocketServer;
+
 require 'vendor/autoload.php';
 
-$app = function ($request, $response) {
-    $response->writeHead(200, array('Content-Type' => 'text/plain'));
-    $response->end("Hello World\n");
-};
+$loop = Factory::create();
 
-$loop = React\EventLoop\Factory::create();
-$socket = new React\Socket\Server($loop);
-$http = new React\Http\Server($socket, $loop);
+$server = new HttpServer(function (ServerRequestInterface $request) {
+    return new Response(
+        200,
+        ['Content-Type' => 'text/plain'],
+        "Hello World!\n"
+    );
+});
 
-$http->on('request', $app);
-
-$socket->listen(getenv('PORT'));
+$socket = new SocketServer(getenv('PORT'), $loop);
+$server->listen($socket);
 
 $loop->run();
